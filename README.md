@@ -8,4 +8,4 @@
 ## Collaborators
 
 Dan Krzeminski
-Aaron Sirico
+Aaron
