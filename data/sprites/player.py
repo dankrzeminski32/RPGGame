@@ -1,4 +1,3 @@
-from . import main
 import pygame
 
 from pygame.locals import (
@@ -10,6 +9,10 @@ from pygame.locals import (
     KEYDOWN,
     QUIT,
 )
+
+
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
 
 #Player class
 class Player(pygame.sprite.Sprite):
@@ -28,3 +31,12 @@ class Player(pygame.sprite.Sprite):
             self.rect.move_ip(-5, 0)
         if pressed_keys[K_RIGHT]:
             self.rect.move_ip(5, 0)
+        if self.rect.left < 0:
+            self.rect.left = 0
+        if self.rect.right > SCREEN_WIDTH:
+            self.rect.right = SCREEN_WIDTH
+        if self.rect.top <= 0:
+            self.rect.top = 0
+        if self.rect.bottom >= SCREEN_HEIGHT:
+            self.rect.bottom = SCREEN_HEIGHT
+               
