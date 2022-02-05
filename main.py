@@ -1,4 +1,5 @@
 import pygame
+import random
 # initialize pygame
 
 pygame.init()
@@ -11,7 +12,6 @@ SCREEN_HEIGHT = 600
 # create a screen object
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
-
 #Player class
 class Player(pygame.sprite.Sprite):
     def __init__(self):
@@ -22,13 +22,13 @@ class Player(pygame.sprite.Sprite):
 
     def update(self, pressed_keys):
         if pressed_keys[K_UP]:
-            self.rect.move_ip(0, -3)
+            self.rect.move_ip(0, -1)
         if pressed_keys[K_DOWN]:
-            self.rect.move_ip(0, 3)
+            self.rect.move_ip(0, 1)
         if pressed_keys[K_LEFT]:
-            self.rect.move_ip(-3, 0)
+            self.rect.move_ip(-1, 0)
         if pressed_keys[K_RIGHT]:
-            self.rect.move_ip(3, 0)
+            self.rect.move_ip(1, 0)
 
         if self.rect.left < 0:
             self.rect.left = 0
@@ -39,6 +39,7 @@ class Player(pygame.sprite.Sprite):
         if self.rect.bottom >= SCREEN_HEIGHT:
             self.rect.bottom = SCREEN_HEIGHT
                 
+
 #create a player object
 player = Player()
 
@@ -72,7 +73,7 @@ while running:
 
     player.update(pressed_keys)
 
-    screen.fill((0,0,0))
+    screen.fill((200,0,0))
 
     screen.blit(player.surf, player.rect)
 
